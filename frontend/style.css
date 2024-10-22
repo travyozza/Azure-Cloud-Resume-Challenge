@@ -1,0 +1,19 @@
+.content{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.head{
+    font-size: 20px;
+}
+
+.uni-job-project-name{
+    font-weight: bold;
+}
+
+.job-org-name{
+    font-style: italic;
+}
+
+.degree{
+    font-style: italic;
+}
