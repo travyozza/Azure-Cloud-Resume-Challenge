@@ -29,13 +29,22 @@ resource "azurerm_storage_account" "crc-storage-account" {
   }
 }
 
-resource "azurerm_storage_blob" "example" {
+resource "azurerm_storage_blob" "resume_html" {
   name                   = "index.html"
   storage_account_name   = azurerm_storage_account.crc-storage-account.name
   storage_container_name = "$web"
   type                   = "Block"
   content_type           = "text/html"
   source                 = "../frontend/index.html"
+}
+
+resource "azurerm_storage_blob" "styles_css" {
+  name                   = "styles.css"
+  storage_account_name   = azurerm_storage_account.crc-storage-account.name
+  storage_container_name = "$web"
+  type                   = "Block"
+  content_type           = "text/css"
+  source                 = "../frontend/styles.css"
 }
 
 
