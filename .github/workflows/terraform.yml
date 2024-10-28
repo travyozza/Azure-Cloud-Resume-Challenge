@@ -79,11 +79,15 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
+      env:
+        TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
       run: terraform fmt 
       working-directory: ./backend
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
+      env:
+        TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
       run: terraform plan -input=false
       working-directory: ./backend
 
@@ -91,5 +95,7 @@ jobs:
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      env:
+        TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
       run: terraform apply -auto-approve -input=false
       working-directory: ./backend
