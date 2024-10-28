@@ -18,7 +18,7 @@ resource "azurerm_storage_account" "crc-storage-account" {
   resource_group_name = azurerm_resource_group.crc-rg.name
   location            = var.location
 
-  name = random_string.storage_account_name.result
+  name = "etwncfus"
 
   account_tier             = "Standard"
   account_replication_type = "LRS"
