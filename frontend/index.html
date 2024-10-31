@@ -1,10 +1,23 @@
 <link rel="stylesheet" href="styles.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('https://tdocrc-func.azurewebsites.net/api/incrementCount?code=8dmtD8nED_Z62fUyEqQ0HKmRjUUCeX99Njd_-oXX0waxAzFuNcrPEQ%3D%3D', {
+            method: 'POST'
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('visitor-count').innerText = `Visitor count: ${data}`;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
 <div id="inner-nav"></div>
 <div id="container">
     <div id="profile">
         <div id="image">
             <a href="#"><i class="fas fa-pen stroke-transparent"></i></a>
         </div>
+        <p id="visitor-count">Visitor count: Loading...</p>
         <p id="name">Travis Ogle<br><span id="email">ogletravis08@gmail.com</span></p>
         <p id="designation">Graduate Cloud Engineer<br><span id="college">Datacom</span></p>
         <div id="social-links"><a href="#"><i class="fab fa-facebook-f stroke-transparent"></i></a><a><i class="fab fa-twitter stroke-transparent"></i></a><a><i class="fab fa-linkedin-in stroke-transparent"></i></a><a><i class="fab fa-github stroke-transparent"></i></a></div>
