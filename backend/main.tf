@@ -59,13 +59,10 @@ resource "azurerm_cdn_endpoint" "crc-cdn-endpoint" {
   profile_name        = azurerm_cdn_profile.crc-cdn-profile.name
   resource_group_name = azurerm_resource_group.crc-rg.name
   location            = var.location
-  
+
   origin_host_header = azurerm_storage_account.crc-storage-account.primary_web_host
   origin {
     name      = "crc-origin"
     host_name = azurerm_storage_account.crc-storage-account.primary_web_host
   }
 }
-
-
-
